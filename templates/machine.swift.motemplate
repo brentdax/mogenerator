@@ -7,26 +7,26 @@ import CoreData
 class _<$managedObjectClassName$>: <$customSuperentity$> {
     
     <$if noninheritedAttributes.@count > 0$>
-    enum Attributes: String {<$foreach Attribute noninheritedAttributes do$>
-        case <$Attribute.name$> = "<$Attribute.name$>"<$endforeach do$>
+    struct Attributes {<$foreach Attribute noninheritedAttributes do$>
+        static let <$Attribute.name$> = "<$Attribute.name$>"<$endforeach do$>
     }
     <$endif$>
 
     <$if noninheritedRelationships.@count > 0$>
-    enum Relationships: String {<$foreach Relationship noninheritedRelationships do$>
-        case <$Relationship.name$> = "<$Relationship.name$>"<$endforeach do$>
+    struct Relationships {<$foreach Relationship noninheritedRelationships do$>
+        static let <$Relationship.name$> = "<$Relationship.name$>"<$endforeach do$>
     }
     <$endif$>
 
     <$if noninheritedFetchedProperties.@count > 0$>
-    enum FetchedProperties: String {<$foreach FetchedProperty noninheritedFetchedProperties do$>
-        case <$FetchedProperty.name$> = "<$FetchedProperty.name$>"<$endforeach do$>
+    struct FetchedProperties {<$foreach FetchedProperty noninheritedFetchedProperties do$>
+        static let <$FetchedProperty.name$> = "<$FetchedProperty.name$>"<$endforeach do$>
     }
     <$endif$>
 
     <$if hasUserInfoKeys$>
-    enum UserInfo: String {<$foreach UserInfo userInfoKeyValues do$>
-        case <$UserInfo.key$> = "<$UserInfo.key$>"<$endforeach do$>
+    struct UserInfo {<$foreach UserInfo userInfoKeyValues do$>
+        static let <$UserInfo.key$> = "<$UserInfo.key$>"<$endforeach do$>
     }
     <$endif$>
     
